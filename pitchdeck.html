@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalMart - Pitch Deck</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate on Scroll Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #4a3f35; /* Dark Brown */
+            --secondary-color: #a08c7d; /* Muted Tan */
+            --accent-color: #c68642; /* Sienna/Warm Brown */
+            --light-gray: #f5f3f1; /* Light Cream */
+            --dark-gray: #332e29;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-gray);
+            scroll-behavior: smooth;
+            background-color: var(--light-gray);
+        }
+
+        .navbar {
+            transition: background-color 0.3s ease;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .navbar-scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(74, 63, 53, 0.7), rgba(74, 63, 53, 0.7)), url('https://source.unsplash.com/random/1920x1080/?artisan,market') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 180px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .info-card {
+            border: none;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 { color: var(--primary-color); font-family: 'Playfair Display', serif; }
+
+        .icon-box {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            height: 400px;
+            width: 100%;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 18px;
+            height: 100%;
+            width: 4px;
+            background: #e9e5e1;
+        }
+
+        .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 40px; }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 5px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-gray);
+        }
+        
+        .footer a { color: var(--secondary-color); text-decoration: none; }
+        .footer a:hover { color: #fff; }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        .btn-primary:hover {
+            background-color: #b07030;
+            border-color: #b07030;
+        }
+        .btn-light {
+            background-color: var(--light-gray);
+            color: var(--primary-color);
+        }
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .read-more-btn {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .read-more-btn:hover {
+            text-decoration: underline;
+        }
+        .collapse-content {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top px-4">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-4" href="#">LocalMart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#problem">The Problem</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solution">Our Solution</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#market">Market</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#model">Business Model</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ask">Join Us</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-lg-3 px-3 py-2" href="#contact">Partner With Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="container" data-aos="fade-up">
+            <h1 class="mb-4">LocalMart: Investing in the Heart of Commerce.</h1>
+            <p class="lead mb-5">Revitalizing local economies by connecting communities to the unique artisans and businesses that define them.</p>
+            <a href="#ask" class="btn btn-lg btn-light fw-bold">View Partnership Opportunity</a>
+        </div>
+    </header>
+
+    <!-- The Problem Section -->
+    <section id="problem" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">The Widening Gap in Local Commerce</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card">
+                        <div class="icon-box"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h3>Inflated Costs for Consumers</h3>
+                        <p>Aggregator apps inflate prices and add hefty fees, widening the gap between what customers pay and what sellers earn.</p>
+                        <a class="read-more-btn" data-bs-toggle="collapse" href="#problem1-details" role="button">Read More <i class="bi bi-arrow-right-short"></i></a>
+                        <div class="collapse collapse-content" id="problem1-details">
+                            Tourists and locals often pay up to 40% more for goods and food on popular platforms. This premium rarely benefits the local business, instead feeding large corporate platforms.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card">
+                        <div class="icon-box"><i class="bi bi-eye-slash"></i></div>
+                        <h3>Invisible Local Artisans</h3>
+                        <p>Talented local businesses are digitally overshadowed by large chains, making it impossible for them to reach a wider audience.</p>
+                        <a class="read-more-btn" data-bs-toggle="collapse" href="#problem2-details" role="button">Read More <i class="bi bi-arrow-right-short"></i></a>
+                        <div class="collapse collapse-content" id="problem2-details">
+                            Without a strong digital presence, unique local shops and endemic artisans remain undiscovered by visitors and even residents in their own community, stunting their growth potential.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card">
+                        <div class="icon-box"><i class="bi bi-box-arrow-left"></i></div>
+                        <h3>Eroding Local Economies</h3>
+                        <p>Money flows out of the community to non-local corporations, starving small businesses of capital and character.</p>
+                        <a class="read-more-btn" data-bs-toggle="collapse" href="#problem3-details" role="button">Read More <i class="bi bi-arrow-right-short"></i></a>
+                        <div class="collapse collapse-content" id="problem3-details">
+                            This "economic leakage" prevents local entrepreneurs from hiring, expanding, and contributing to the unique cultural fabric of their community, leading to homogenization.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- The Solution Section -->
+    <section id="solution" class="section bg-white">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">LocalMart: The Bridge to Authentic Commerce</h2>
+            <p class="lead text-center mb-5" data-aos="fade-up">We empower local businesses and connect consumers directly to the source.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4" data-aos="fade-right">
+                    <div class="info-card text-center">
+                        <div class="icon-box"><i class="bi bi-compass"></i></div>
+                        <h3>Discover & Connect</h3>
+                        <p>A curated, map-based platform to find unique local artisans, shops, and eateries, bypassing the middleman.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <div class="info-card text-center">
+                        <div class="icon-box"><i class="bi bi-chat-dots"></i></div>
+                        <h3>Direct Communication</h3>
+                        <p>An integrated chat feature allows customers to talk directly with sellers for a personalized experience.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-left">
+                    <div class="info-card text-center">
+                        <div class="icon-box"><i class="bi bi-bar-chart-line"></i></div>
+                        <h3>Growth for Sellers</h3>
+                        <p>A simple, powerful dashboard for sellers to showcase products, manage their profile, and gain visibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Opportunity Section -->
+    <section id="market" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">The Vast Potential of Hyper-Local Commerce</h2>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <h3>The Hyper-Local Opportunity</h3>
+                    <p class="text-muted">The global market for local services is immense, but existing digital tools are flawed. We are targeting the growing segment of consumers who prioritize authenticity, sustainability, and community.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong class="text-primary">Total Addressable Market (TAM):</strong> The $1.2T global local commerce market shows the scale of the opportunity.</li>
+                        <li class="mb-2"><strong class="text-primary">Serviceable Addressable Market (SAM):</strong> The Indian hyper-local market is a rapidly growing $150B segment.</li>
+                        <li><strong class="text-primary">Initial Target Market:</strong> We will begin by focusing on key tourist and metro hubs in India during our pilot phase.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="chart-container">
+                        <canvas id="marketShareChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-5 align-items-center mt-5">
+                 <div class="col-lg-5" data-aos="fade-right">
+                    <div class="chart-container">
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <h3>Our Go-to-Market & Growth Goals</h3>
+                    <p class="text-muted">Our community-led strategy focuses on a pilot launch in select cities. We project steady, sustainable adoption by sellers eager for a fair platform and consumers seeking authentic experiences.</p>
+                    <p>Our goal is to onboard <strong>5,000 active sellers</strong> and achieve <strong>100,000 active users</strong> within the first 18 months post-launch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model Section -->
+    <section id="model" class="section bg-white">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">A Simple, Scalable Revenue Model</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline">
+                        <div class="timeline-item" data-aos="fade-up"><div class="timeline-dot">1</div><h4 class="mb-1">Freemium for Sellers</h4><p class="text-muted">Basic profiles are free to ensure a rich marketplace from day one.</p></div>
+                        <div class="timeline-item" data-aos="fade-up"><div class="timeline-dot">2</div><h4 class="mb-1">LocalMart Pro (Subscription)</h4><p class="text-muted">A monthly fee unlocks premium features like promoted listings, analytics, and direct chat.</p></div>
+                        <div class="timeline-item" data-aos="fade-up"><div class="timeline-dot">3</div><h4 class="mb-1">Hyper-Local Advertising</h4><p class="text-muted">Targeted, non-intrusive ad opportunities for businesses to reach specific demographics.</p></div>
+                        <div class="timeline-item" data-aos="fade-up"><div class="timeline-dot">4</div><h4 class="mb-1">Future Revenue Streams</h4><p class="text-muted">Low-commission payments, logistics partnerships, and anonymized market trend reports.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Ask Section -->
+    <section id="ask" class="section">
+        <div class="container text-center" data-aos="zoom-in">
+            <h2 class="section-title">Join Our Mission: Seeking a Strategic Partner</h2>
+            <p class="lead mb-5">The product is built. The vision is clear. Now, we're looking for a partner to help us launch and grow. I've laid the technical foundation using free tools and passion; I'm now seeking a co-founder to build the business side with me.</p>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-6">
+                    <div class="card p-4 h-100 shadow-sm">
+                        <h4 class="mb-3" style="color: var(--primary-color);">What We're Looking For</h4>
+                        <p class="text-start"><i class="bi bi-check-circle-fill text-success me-2"></i>A **Co-Founder** with a background in business, marketing, and sales.</p>
+                        <p class="text-start"><i class="bi bi-check-circle-fill text-success me-2"></i>Someone passionate about empowering local communities.</p>
+                        <p class="text-start"><i class="bi bi-check-circle-fill text-success me-2"></i>Ready to build a business from the ground up and share in its future success through significant equity.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                     <div class="card p-4 h-100 shadow-sm">
+                        <h4 class="mb-3" style="color: var(--primary-color);">Initial Funding Goal</h4>
+                        <p>To cover essential launch costs, we aim to raise an initial pre-seed/friends & family round of **₹15 Lakhs** together. This will be used for:</p>
+                        <ul class="list-unstyled text-start">
+                           <li><strong class="text-primary">40%</strong> - Server Costs & Tech Infrastructure</li>
+                           <li><strong class="text-primary">40%</strong> - Pilot City Launch & Digital Marketing</li>
+                           <li><strong class="text-primary">20%</strong> - Legal Setup & Operational Expenses</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="footer section pb-5 pt-5">
+        <div class="container text-center">
+            <h2 class="mb-4" data-aos="fade-up">Let's Build This, Together.</h2>
+            <p class="mb-4" data-aos="fade-up" data-aos-delay="100">If you have the business acumen to match this technical foundation, let's talk.</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <p class="mb-2"><strong>Contact:</strong> Ranit Sarkar, Founder</p>
+                <p class="mb-2"><strong>Email:</strong> <a href="mailto:ranitsarkar71@gmail.com">ranitsarkar71@gmail.com</a></p>
+                <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+                 <a href="mailto:ranitsarkar71@gmail.com?subject=Partnership%20Discussion%20for%20LocalMart&body=Hello%20Ranit,%0D%0A%0D%0AI%20came%20across%20the%20pitch%20deck%20for%20LocalMart%20and%20I%20am%20very%20impressed%20with%20the%20vision%20and%20the%20product%20you%20have%20built.%0D%0A%0D%0AI%20have%20a%20background%20in%20[Please%20specify%20your%20background%20here]%20and%20I%20am%20passionate%20about%20supporting%20local%20economies.%20I%20believe%20my%20skills%20could%20be%20a%20great%20match%20for%20what%20you%20are%20looking%20for%20in%20a%20strategic%20partner.%0D%0A%0D%0AI%20would%20like%20to%20schedule%20a%20call%20to%20discuss%20this%20opportunity%20further.%0D%0A%0D%0APlease%20let%20me%20know%20what%20time%20works%20best%20for%20you.%0D%0A%0D%0ABest%20regards,%0D%0A%0D%0A[Your%20Name]" class="btn btn-secondary btn-lg mt-3">Schedule a Call</a>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            <p class="small">&copy; 2025 LocalMart. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Animate on Scroll Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <script>
+        // Initialize Animate on Scroll
+        AOS.init({ duration: 800, once: true });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.onscroll = () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        };
+
+        // Chart.js Implementations with brown color scheme
+        const chartFont = 'Lato';
+        const chartTitleColor = '#4a3f35';
+        const chartLabelColor = '#6c757d';
+
+        // 1. Market Share Chart
+        const marketCtx = document.getElementById('marketShareChart').getContext('2d');
+        new Chart(marketCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Large Aggregators', 'Foreign Chains', 'LocalMart Opportunity', 'Other'],
+                datasets: [{
+                    data: [45, 30, 20, 5],
+                    backgroundColor: ['#b07030', '#4a3f35', '#a08c7d', '#dcd3ca'],
+                    borderColor: '#f5f3f1',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: chartLabelColor, font: { family: chartFont }}},
+                    title: { display: true, text: 'Current Market Landscape (Consumer Spend)', color: chartTitleColor, font: { size: 16, family: 'Playfair Display' }}
+                }
+            }
+        });
+
+        // 2. User Growth Chart (Revised for 18-month projection)
+        const userGrowthCtx = document.getElementById('userGrowthChart').getContext('2d');
+        new Chart(userGrowthCtx, {
+            type: 'line',
+            data: {
+                labels: ['Launch', '6 Months', '12 Months', '18 Months'],
+                datasets: [{
+                    label: 'Projected Active Users (in thousands)',
+                    data: [0, 10, 40, 100],
+                    backgroundColor: 'rgba(160, 140, 125, 0.2)',
+                    borderColor: '#a08c7d',
+                    tension: 0.4, fill: true
+                }, {
+                    label: 'Projected Sellers (in thousands)',
+                    data: [0, 0.5, 2, 5],
+                    backgroundColor: 'rgba(74, 63, 53, 0.2)',
+                    borderColor: '#4a3f35',
+                    tension: 0.4, fill: true
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: {
+                     legend: { position: 'bottom', labels: { color: chartLabelColor, font: { family: chartFont }}},
+                    title: { display: true, text: '18-Month Pilot Growth Goals', color: chartTitleColor, font: { size: 16, family: 'Playfair Display' }}
+                },
+                scales: { y: { beginAtZero: true, ticks: { color: chartLabelColor } }, x: { ticks: { color: chartLabelColor } } }
+            }
+        });
+    </script>
+</body>
+</html>
